@@ -1,0 +1,70 @@
+.work-section { padding: 4rem 5vw 8rem; }
+
+.work-filters {
+  display: flex; flex-wrap: wrap; gap: 0.5rem;
+  margin-bottom: 3rem;
+}
+
+.filter-btn {
+  font-family: var(--font-display);
+  font-size: 0.75rem; font-weight: 600;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  padding: 0.5rem 1.2rem;
+  border-radius: 100px;
+  border: 1px solid var(--border);
+  background: transparent; color: var(--muted);
+  cursor: pointer; transition: var(--transition);
+}
+.filter-btn:hover { color: var(--white); border-color: rgba(255,255,255,0.2); }
+.filter-btn.active { background: var(--accent); color: #000; border-color: var(--accent); }
+
+.work-list { display: flex; flex-direction: column; }
+
+.work-card {
+  display: grid;
+  grid-template-columns: 60px 1fr auto auto;
+  align-items: center; gap: 2rem;
+  padding: 2.5rem 2rem;
+  border-bottom: 1px solid var(--border);
+  cursor: pointer;
+  opacity: 0; transform: translateX(-20px);
+  transition: opacity 0.5s, transform 0.5s, background 0.2s;
+  border-radius: var(--radius);
+}
+.work-card.animate-in { opacity: 1; transform: none; }
+.work-card:hover { background: var(--surface); }
+.work-card:hover .work-card__arrow { transform: translateX(4px) translateY(-4px); }
+.work-card:hover .work-card__name { color: var(--accent); }
+
+.work-card__num {
+  font-family: var(--font-display); font-size: 0.7rem;
+  letter-spacing: 0.12em; color: var(--muted);
+}
+
+.work-card__meta { display: flex; align-items: center; gap: 1rem; margin-bottom: 0.4rem; }
+.work-card__category { font-family: var(--font-display); font-size: 0.72rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; }
+.work-card__year { font-size: 0.78rem; color: var(--muted); }
+
+.work-card__name {
+  font-family: var(--font-display);
+  font-size: 1.5rem; font-weight: 700;
+  color: var(--white); letter-spacing: -0.02em;
+  margin-bottom: 0.4rem;
+  transition: color 0.25s;
+}
+.work-card__desc { font-size: 0.88rem; color: var(--muted); font-weight: 300; line-height: 1.5; }
+
+.work-card__impact { text-align: right; }
+.impact-value { display: block; font-family: var(--font-display); font-size: 1.3rem; font-weight: 800; letter-spacing: -0.02em; }
+.impact-label { display: block; font-size: 0.72rem; color: var(--muted); letter-spacing: 0.06em; margin-top: 0.2rem; }
+
+.work-card__arrow { font-size: 1.3rem; transition: transform 0.25s; }
+
+@media (max-width: 768px) {
+  .work-card { grid-template-columns: 40px 1fr auto; }
+  .work-card__impact { display: none; }
+}
+@media (max-width: 540px) {
+  .work-card { grid-template-columns: 1fr auto; }
+  .work-card__num { display: none; }
+}

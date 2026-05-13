@@ -1,0 +1,451 @@
+/* ════════════════════════════════════════
+   SIGN IN PAGE
+   Palette: Navy #1a1f4e · Crimson #8b1a1a
+   Background: coding/programming image
+   ════════════════════════════════════════ */
+
+.signin-page {
+  --navy:          #1a1f4e;
+  --navy-dark:     #12163a;
+  --crimson:       #8b1a1a;
+  --crimson-light: #b02020;
+  --crimson-btn:   #7a1515;
+  --white:         #ffffff;
+  --off-white:     #f4f4f6;
+  --text:          #2c2c3a;
+  --muted:         #5a5a72;
+  --surface:       #ffffff;
+  --font-head:     'Georgia', 'Times New Roman', serif;
+  --font-body:     'Segoe UI', system-ui, sans-serif;
+  --radius:        8px;
+  --radius-lg:     16px;
+  --transition:    all 0.22s ease;
+
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  position: relative;
+  overflow: hidden;
+  font-family: var(--font-body);
+  color: var(--text);
+}
+
+/* ──────────────────────────────────────────
+   Full-page coding background
+────────────────────────────────────────── */
+.signin-bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background-image: url("https://images.unsplash.com/photo-1607799279861-4dd421887fb3?w=1600&q=80");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Dark overlay — navy-to-crimson diagonal tint */
+.signin-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(10, 12, 35, 0.88) 0%,
+    rgba(26, 31, 78, 0.78) 50%,
+    rgba(70, 8, 8, 0.65) 100%
+  );
+}
+
+/* Faint grid lines on top of overlay */
+.signin-grid {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+  background-size: 52px 52px;
+  mask-image: radial-gradient(ellipse 85% 85% at 50% 50%, black, transparent);
+}
+
+/* Soft colour glows */
+.signin-glow {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(90px);
+  animation: si-pulse 5s ease-in-out infinite;
+  z-index: 1;
+}
+.signin-glow--1 {
+  width: 500px; height: 500px;
+  background: rgba(26, 31, 78, 0.5);
+  top: -140px; right: -100px;
+}
+.signin-glow--2 {
+  width: 380px; height: 380px;
+  background: rgba(139, 26, 26, 0.4);
+  bottom: -80px; left: -80px;
+  animation-delay: 2.5s;
+}
+
+/* ──────────────────────────────────────────
+   Logo
+────────────────────────────────────────── */
+.signin-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.8rem;
+  position: relative;
+  z-index: 10;
+  text-decoration: none;
+}
+
+.logo-mark {
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
+  background: var(--crimson);
+  color: var(--white);
+  font-family: var(--font-head);
+  font-size: 1.05rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  letter-spacing: -0.02em;
+  box-shadow: 0 4px 18px rgba(139, 26, 26, 0.55);
+}
+
+.logo-text {
+  font-family: var(--font-head);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--white);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+}
+.logo-text span {
+  color: #ffb3b3;
+}
+
+/* ──────────────────────────────────────────
+   Card — frosted glass
+────────────────────────────────────────── */
+.signin-card {
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.65);
+  border-radius: var(--radius-lg);
+  padding: 2.5rem;
+  width: 100%;
+  max-width: 440px;
+  position: relative;
+  z-index: 10;
+  box-shadow:
+    0 8px 48px rgba(0, 0, 0, 0.4),
+    0 2px 8px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255,255,255,0.9);
+  animation: si-fadeUp 0.7s both;
+}
+
+/* Crimson-to-navy accent bar at top of card */
+.signin-card::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 2rem; right: 2rem;
+  height: 3px;
+  background: linear-gradient(90deg, var(--crimson), var(--navy));
+  border-radius: 0 0 4px 4px;
+}
+
+/* ──────────────────────────────────────────
+   Tabs
+────────────────────────────────────────── */
+.signin-tabs {
+  display: flex;
+  background: var(--off-white);
+  border-radius: 100px;
+  padding: 4px;
+  margin-bottom: 2.2rem;
+  border: 1px solid rgba(26, 31, 78, 0.1);
+}
+
+.signin-tab {
+  flex: 1;
+  padding: 0.6rem;
+  border-radius: 100px;
+  border: none;
+  background: transparent;
+  color: var(--muted);
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.signin-tab.active {
+  background: var(--navy);
+  color: var(--white);
+  box-shadow: 0 2px 10px rgba(26, 31, 78, 0.3);
+}
+
+/* ──────────────────────────────────────────
+   Header
+────────────────────────────────────────── */
+.signin-header {
+  margin-bottom: 1.8rem;
+}
+
+.signin-header h2 {
+  font-family: var(--font-head);
+  font-size: 1.55rem;
+  font-weight: 700;
+  color: var(--navy);
+  margin: 0 0 0.3rem;
+  letter-spacing: -0.02em;
+}
+
+.signin-header p {
+  font-size: 0.87rem;
+  color: var(--muted);
+  margin: 0;
+}
+
+/* ──────────────────────────────────────────
+   Form groups
+────────────────────────────────────────── */
+.signin-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.42rem;
+}
+
+.form-group label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text);
+  letter-spacing: 0.01em;
+}
+
+.form-group input {
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  color: var(--text);
+  background: var(--off-white);
+  border: 1px solid rgba(26, 31, 78, 0.15);
+  border-radius: var(--radius);
+  padding: 0.65rem 0.9rem;
+  outline: none;
+  transition: var(--transition);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.form-group input::placeholder { color: #aaa; }
+
+.form-group input:focus {
+  border-color: var(--navy);
+  box-shadow: 0 0 0 3px rgba(26, 31, 78, 0.1);
+  background: var(--white);
+}
+
+/* ──────────────────────────────────────────
+   Remember / forgot
+────────────────────────────────────────── */
+.signin-opts {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.2rem;
+}
+
+.signin-remember {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.83rem;
+  color: var(--muted);
+  cursor: pointer;
+}
+
+.signin-remember input {
+  accent-color: var(--crimson);
+  width: 14px; height: 14px;
+}
+
+.signin-forgot {
+  font-size: 0.82rem;
+  color: var(--muted);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.signin-forgot:hover { color: var(--crimson); }
+
+/* ──────────────────────────────────────────
+   Primary button — crimson → navy gradient
+────────────────────────────────────────── */
+.btn--primary.btn--full,
+.btn.btn--primary.btn--full {
+  width: 100%;
+  padding: 0.82rem 1.5rem;
+  background: linear-gradient(135deg, var(--crimson) 0%, var(--navy) 100%);
+  color: var(--white);
+  border: none;
+  border-radius: 50px;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  transition: opacity 0.2s, transform 0.18s, box-shadow 0.22s;
+  box-shadow: 0 4px 18px rgba(26, 31, 78, 0.38);
+  margin-top: 0.3rem;
+}
+
+.btn--primary.btn--full:hover,
+.btn.btn--primary.btn--full:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+  box-shadow: 0 8px 26px rgba(26, 31, 78, 0.45);
+}
+
+.btn--primary.btn--full:active,
+.btn.btn--primary.btn--full:active {
+  transform: translateY(0);
+}
+
+/* ──────────────────────────────────────────
+   Divider
+────────────────────────────────────────── */
+.signin-divider {
+  text-align: center;
+  position: relative;
+  margin: 1.4rem 0 1rem;
+}
+
+.signin-divider::before {
+  content: "";
+  position: absolute;
+  top: 50%; left: 0; right: 0;
+  height: 1px;
+  background: rgba(26, 31, 78, 0.1);
+}
+
+.signin-divider span {
+  background: rgba(255, 255, 255, 0.94);
+  padding: 0 1rem;
+  font-size: 0.74rem;
+  color: var(--muted);
+  position: relative;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+/* ──────────────────────────────────────────
+   Social buttons
+────────────────────────────────────────── */
+.signin-socials {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+}
+
+.social-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.7rem;
+  border-radius: var(--radius);
+  border: 1px solid rgba(26, 31, 78, 0.15);
+  background: var(--off-white);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.social-btn span {
+  font-weight: 800;
+  color: var(--navy);
+}
+
+.social-btn:hover {
+  border-color: var(--navy);
+  background: rgba(26, 31, 78, 0.06);
+  color: var(--navy);
+}
+
+/* ──────────────────────────────────────────
+   Back to website button
+────────────────────────────────────────── */
+.signin-back {
+  margin-top: 1.6rem;
+  font-size: 0.84rem;
+  position: relative;
+  z-index: 10;
+}
+
+.signin-back a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.6rem 1.4rem;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(8px);
+  color: rgba(255, 255, 255, 0.88);
+  text-decoration: none;
+  font-size: 0.84rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  transition: all 0.25s ease;
+}
+
+.signin-back a:hover {
+  background: var(--crimson);
+  color: var(--white);
+  border-color: var(--crimson);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(139, 26, 26, 0.5);
+}
+
+/* ──────────────────────────────────────────
+   Keyframes
+────────────────────────────────────────── */
+@keyframes si-fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: none; }
+}
+
+@keyframes si-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: 0.65; transform: scale(1.08); }
+}
+
+/* ──────────────────────────────────────────
+   Responsive
+────────────────────────────────────────── */
+@media (max-width: 480px) {
+  .signin-card { padding: 2rem 1.4rem; }
+  .signin-socials { grid-template-columns: 1fr; }
+}

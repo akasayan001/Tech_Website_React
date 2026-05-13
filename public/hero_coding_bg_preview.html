@@ -1,0 +1,154 @@
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#12163a}
+.hero-preview{
+  position:relative;min-height:520px;background:#12163a;
+  display:flex;flex-direction:column;justify-content:center;
+  padding:60px 6vw 50px;overflow:hidden;font-family:'Georgia',serif;
+}
+canvas#matrix{position:absolute;inset:0;width:100%;height:100%;opacity:0.18;pointer-events:none}
+.hero__dots{
+  position:absolute;inset:0;
+  background-image:radial-gradient(circle,rgba(255,255,255,0.06) 1px,transparent 1px);
+  background-size:32px 32px;pointer-events:none;
+}
+.hero__blob1{
+  position:absolute;width:280px;height:280px;border-radius:50%;
+  background:rgba(139,26,26,0.2);top:-60px;right:5%;
+  filter:blur(60px);pointer-events:none;
+  animation:pulse 5s ease-in-out infinite;
+}
+.floating-code{
+  position:absolute;font-family:'Courier New',monospace;
+  pointer-events:none;animation:float-code linear infinite;
+  white-space:nowrap;
+}
+.hero__inner{position:relative;z-index:2;max-width:680px}
+.hero__tag{
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);
+  border-radius:100px;padding:5px 14px;
+  font-size:11px;letter-spacing:0.1em;color:rgba(255,255,255,0.55);
+  margin-bottom:1.5rem;font-family:'Segoe UI',sans-serif;font-weight:500;
+}
+.tag-dot{width:6px;height:6px;border-radius:50%;background:#b02020;display:inline-block;animation:pulse 2s ease-in-out infinite}
+.hero__title{font-size:clamp(2.8rem,6vw,4.8rem);font-weight:700;line-height:1.05;letter-spacing:-0.02em;margin-bottom:1.2rem}
+.line1{display:block;color:#fff}
+.line2{display:block;color:transparent;-webkit-text-stroke:1.5px rgba(255,255,255,0.22)}
+.line3{display:block;color:#b02020}
+.hero__sub{font-size:.95rem;color:rgba(255,255,255,0.5);line-height:1.75;max-width:480px;margin-bottom:2rem;font-family:'Segoe UI',sans-serif;font-weight:300}
+.btn-ghost{
+  display:inline-block;padding:10px 24px;background:transparent;
+  color:rgba(255,255,255,0.65);border-radius:50px;font-size:.88rem;font-weight:600;
+  text-decoration:none;border:2px solid rgba(255,255,255,0.22);font-family:'Segoe UI',sans-serif;
+  letter-spacing:0.03em;
+}
+.scroll-hint{
+  position:absolute;bottom:1.5rem;left:6vw;z-index:2;
+  display:flex;align-items:center;gap:12px;
+  color:rgba(255,255,255,0.3);font-size:10px;letter-spacing:0.18em;font-weight:600;
+  font-family:'Segoe UI',sans-serif;
+}
+.scroll-line{width:40px;height:1px;background:rgba(255,255,255,0.12);overflow:hidden}
+.scroll-fill{height:100%;background:#b02020;animation:slide-fill 2s ease-in-out infinite}
+@keyframes pulse{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.08);opacity:.75}}
+@keyframes slide-fill{0%{transform:translateX(-100%)}50%{transform:translateX(0)}100%{transform:translateX(100%)}}
+@keyframes float-code{0%{transform:translateY(0);opacity:0}10%{opacity:1}90%{opacity:.6}100%{transform:translateY(-340px);opacity:0}}
+</style>
+
+<div class="hero-preview">
+  <canvas id="matrix"></canvas>
+  <div class="hero__dots"></div>
+  <div class="hero__blob1"></div>
+  <div id="floaters"></div>
+
+  <div class="hero__inner">
+    <span class="hero__tag"><span class="tag-dot"></span> Next-Gen Software · Kolkata, India</span>
+    <h1 class="hero__title">
+      <span class="line1">Building</span>
+      <span class="line2">Digital</span>
+      <span class="line3" id="scramble">TOMORROW</span>
+    </h1>
+    <p class="hero__sub">We are a dynamic startup dedicated to transforming the way businesses operate through innovative, customized software solutions — from web and mobile to VR.</p>
+    <a href="#" class="btn-ghost">Our Services ↗</a>
+  </div>
+
+  <div class="scroll-hint">
+    <span>SCROLL DOWN</span>
+    <div class="scroll-line"><div class="scroll-fill"></div></div>
+  </div>
+</div>
+
+<script>
+const canvas = document.getElementById('matrix');
+const ctx = canvas.getContext('2d');
+
+function resize(){canvas.width=canvas.offsetWidth;canvas.height=canvas.offsetHeight}
+resize();
+window.addEventListener('resize',resize);
+
+const cols = Math.floor(canvas.width/18);
+const drops = Array(cols).fill(1);
+const chars = '01アイウエオカキクケコサシスセソabcdefghijklmnopqrstuvwxyz{}[]()<>=+-*/;:.,?!#$%^&|~`\\"';
+
+function drawMatrix(){
+  ctx.fillStyle='rgba(18,22,58,0.05)';
+  ctx.fillRect(0,0,canvas.width,canvas.height);
+  ctx.font='14px "Courier New"';
+  drops.forEach((y,i)=>{
+    const ch=chars[Math.floor(Math.random()*chars.length)];
+    const bright=Math.random()>0.9;
+    ctx.fillStyle=bright?'rgba(255,255,255,0.9)':'rgba(180,26,26,'+(0.3+Math.random()*0.5)+')';
+    ctx.fillText(ch,i*18,y*18);
+    if(y*18>canvas.height&&Math.random()>0.975)drops[i]=0;
+    drops[i]++;
+  });
+}
+setInterval(drawMatrix,55);
+
+const snippets=[
+  'const api = new API();',
+  'await db.query(sql);',
+  'flutter build apk',
+  '.NET Core 8.0',
+  'SELECT * FROM users',
+  'git commit -m "feat"',
+  'docker compose up',
+  'npm run build',
+  'public async Task<>',
+  'var result = await',
+  'REST API · gRPC',
+  'IEnumerable<T>',
+  'setState((){})',
+  'SqlConnection conn',
+];
+const floaters=document.getElementById('floaters');
+function spawnFloater(){
+  const el=document.createElement('div');
+  el.className='floating-code';
+  const txt=snippets[Math.floor(Math.random()*snippets.length)];
+  el.textContent=txt;
+  const x=Math.random()*80+5;
+  const bottom=Math.random()*60;
+  const dur=6+Math.random()*8;
+  const size=10+Math.random()*4;
+  const opacity=0.18+Math.random()*0.25;
+  const col=Math.random()>0.5?'rgba(180,180,255,'+opacity+')':'rgba(200,100,100,'+opacity+')';
+  el.style.cssText=`left:${x}%;bottom:${bottom}px;font-size:${size}px;color:${col};animation-duration:${dur}s;animation-delay:${Math.random()*4}s`;
+  floaters.appendChild(el);
+  setTimeout(()=>el.remove(),(dur+4)*1000);
+}
+for(let i=0;i<12;i++)setTimeout(()=>spawnFloater(),i*600);
+setInterval(spawnFloater,1800);
+
+const WORD='TOMORROW';
+const CHARS='ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$';
+let tick=0;
+const el=document.getElementById('scramble');
+const iv=setInterval(()=>{
+  tick++;
+  const p=Math.min(tick,WORD.length);
+  el.textContent=WORD.split('').map((c,i)=>i<p?c:CHARS[Math.floor(Math.random()*CHARS.length)]).join('');
+  if(tick>=WORD.length)clearInterval(iv);
+},75);
+</script>
