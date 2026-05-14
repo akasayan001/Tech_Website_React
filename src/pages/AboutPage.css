@@ -83,9 +83,9 @@
   position: absolute;
   inset: 0;
   background: var(--navy-dark);
-  background-image: url("/public/computer-program-coding-screen.png");
+  background-image: url("/about.jpg");
   background-size: cover;
-  background-position: center 30%;
+  background-position: center 50%;
 }
 .abt-hero__bg::after {
   content: "";

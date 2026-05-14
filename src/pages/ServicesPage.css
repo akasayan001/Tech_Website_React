@@ -70,7 +70,7 @@
   position: absolute;
   inset: 0;
   background: var(--navy-dark);
-   background-image: url("/public/computer-program-coding-screen.png");
+   background-image: url("/computer-program-coding-screen.png");
   background-size: cover;
   background-position: center 40%;
 }
