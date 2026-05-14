@@ -10,7 +10,7 @@ import "./ContactPage.css";
 //           → Account → API Keys              → copy Public Key
 // ─────────────────────────────────────────────
 const EMAILJS_SERVICE_ID  = "service_snfpy0b";
-const EMAILJS_TEMPLATE_ID = "template_qtvm8tp";
+const EMAILJS_TEMPLATE_ID = "template_zlcpwqq";
 const EMAILJS_PUBLIC_KEY  = "LJgKmqYhX0oiOREPv";
 
 // ── EmailJS template variables (must match your template exactly) ──
