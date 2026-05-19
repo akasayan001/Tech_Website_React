@@ -10,6 +10,7 @@ import NewsPage from "./pages/NewsPage";
 import CareersPage from "./pages/CareersPage";
 import ContactPage from "./pages/ContactPage";
 import SignInPage from "./pages/SignInPage";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
 import "./App.css";
 
 function ScrollToTop() {
@@ -44,6 +45,7 @@ export default function App() {
         <Route path="/news" element={<Layout><NewsPage /></Layout>} />
         {/* <Route path="/careers" element={<Layout><CareersPage /></Layout>} /> */}
         <Route path="/contact" element={<Layout><ContactPage /></Layout>} />
+        <Route path="/privacy-policy" element={<Layout><PrivacyPolicy /></Layout>} />
       </Routes>
     </BrowserRouter>
   );

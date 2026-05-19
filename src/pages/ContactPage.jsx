@@ -2,26 +2,15 @@ import { useState, useEffect } from "react";
 import emailjs from "@emailjs/browser";
 import "./ContactPage.css";
 
-// ─────────────────────────────────────────────
-// 🔑 FILL IN YOUR EMAILJS CREDENTIALS BELOW
-// Sign up at https://www.emailjs.com (free)
-// Dashboard → Email Services → Add Service   → copy Service ID
-//           → Email Templates → Create Template → copy Template ID
-//           → Account → API Keys              → copy Public Key
-// ─────────────────────────────────────────────
 const EMAILJS_SERVICE_ID  = "service_snfpy0b";
 const EMAILJS_TEMPLATE_ID = "template_zlcpwqq";
 const EMAILJS_PUBLIC_KEY  = "LJgKmqYhX0oiOREPv";
-
-// ── EmailJS template variables (must match your template exactly) ──
-// Main template  : {{name}}, {{email}}, {{phone}}, {{company}}, {{title}}, {{message}}, {{time}}
-// Auto-Reply tab : To Email → {{email}}  |  use same variables in body
 
 export default function ContactPage() {
   const [form, setForm] = useState({
     name: "", email: "", phone: "", company: "", subject: "", message: "",
   });
-  const [status, setStatus] = useState("idle"); // "idle" | "sending" | "sent" | "error"
+  const [status, setStatus] = useState("idle");
   const [errorMsg, setErrorMsg] = useState("");
 
   useEffect(() => {
@@ -35,26 +24,22 @@ export default function ContactPage() {
     setStatus("sending");
     setErrorMsg("");
 
-   const templateParams = {
-  name: form.name,
-  email: form.email,
-  phone: form.phone || "N/A",
-  company: form.company || "N/A",
-  subject: form.subject,
-  message: form.message,
-  time: new Date().toLocaleString("en-IN", {
-    dateStyle: "medium", 
-    timeStyle: "short",
-    timeZone: "Asia/Kolkata",
-  }),
-};
+    const templateParams = {
+      name: form.name,
+      email: form.email,
+      phone: form.phone || "N/A",
+      company: form.company || "N/A",
+      subject: form.subject,
+      message: form.message,
+      time: new Date().toLocaleString("en-IN", {
+        dateStyle: "medium",
+        timeStyle: "short",
+        timeZone: "Asia/Kolkata",
+      }),
+    };
 
     try {
-      await emailjs.send(
-        EMAILJS_SERVICE_ID,
-        EMAILJS_TEMPLATE_ID,
-        templateParams,
-      );
+      await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams);
       setStatus("sent");
     } catch (err) {
       console.error("EmailJS error:", JSON.stringify(err));
@@ -174,7 +159,12 @@ export default function ContactPage() {
                   <label>Subject <span>*</span></label>
                   <select name="subject" value={form.subject} onChange={handle} required>
                     <option value="">Select a subject</option>
-                    <option>New Project Inquiry</option>
+                    <option>Custom Web Application</option>
+                    <option>Mobile App Development</option>
+                    <option>Digital Wallet Enablement</option>
+                    <option>Back-Office Automation</option>
+                    <option>Enterprise Reporting & Analytics</option>
+                    <option>HR Solutions / Odoo Customization</option>
                     <option>Partnership</option>
                     <option>Career Inquiry</option>
                     <option>General Question</option>
@@ -186,7 +176,6 @@ export default function ContactPage() {
                   <textarea name="message" rows={5} placeholder="Describe your project or challenge..." value={form.message} onChange={handle} required />
                 </div>
 
-                {/* Error message */}
                 {status === "error" && (
                   <div className="cp-error">{errorMsg}</div>
                 )}
@@ -206,4 +195,4 @@ export default function ContactPage() {
       </section>
     </div>
   );
-} 
+}

@@ -85,22 +85,52 @@ function Hero() {
     if (!container) return;
 
     const snippets = [
-      "const api = new API();",
-      "await db.query(sql);",
-      "flutter build apk",
-      ".NET Core 8.0",
-      "SELECT * FROM users",
-      "git commit -m 'feat'",
-      "docker compose up",
-      "npm run build",
-      "public async Task<IActionResult>",
-      "var result = await client",
-      "REST API · gRPC",
-      "IEnumerable<T> data",
-      "setState(() { });",
-      "SqlConnection conn",
-      "services.AddDbContext<>()",
-      "FlutterApp.run()",
+      'const app = createApp();',
+      'npm run deploy',
+      'useEffect(() => {})',
+      'Next.js App Router',
+      'React Server Components',
+      'const token = jwt.sign()',
+      'await db.query(sql)',
+      'Node.js + Express',
+      'public async Task<IActionResult>',
+      'ASP.NET Core 8',
+      'REST API · GraphQL',
+      'MongoDB Atlas',
+      'Redis Cache Enabled',
+      'docker compose up',
+      'kubectl apply -f',
+      'CI/CD Pipeline',
+      'GitHub Actions',
+      'Nginx Reverse Proxy',
+      'Linux Ubuntu Server',
+      'OpenAI API Integration',
+      'AI Powered Search',
+      'Machine Learning Model',
+      'TensorFlow.predict()',
+      'Neural Network Active',
+      'bcrypt.hash(password)',
+      'JWT Authentication',
+      'Firewall Protected',
+      'AES-256 Encryption',
+      'SELECT * FROM users',
+      'JOIN orders ON users.id',
+      'PostgreSQL Connected',
+      'Firebase Initialized',
+      'flutter build apk',
+      'React Native CLI',
+      'Android Studio Ready',
+      'AWS EC2 Running',
+      'Azure Cloud Deploy',
+      'Google Cloud Functions',
+      'git commit -m "deploy"',
+      'git push origin main',
+      '</> Engineering Future',
+      'System Online...',
+      'Compiling Innovation...',
+      'Initializing Platform...',
+      'Loading Secure Modules...',
+      'Launching Experience...',
     ];
 
     function spawnFloater() {
@@ -125,7 +155,6 @@ function Hero() {
       setTimeout(() => el.remove(), (dur + 3) * 1000);
     }
 
-    // Spawn initial batch
     for (let i = 0; i < 14; i++) {
       setTimeout(() => spawnFloater(), i * 500);
     }
@@ -135,11 +164,9 @@ function Hero() {
 
   return (
     <section className="hero" id="home">
-      {/* Animated coding background */}
       <canvas ref={canvasRef} className="hero__matrix" />
       <div ref={floatersRef} className="hero__floaters" />
 
-      {/* Background layers */}
       <div className="hero__bg">
         <div className="hero__dots" />
         <div className="hero__blob hero__blob--1" />
@@ -159,8 +186,9 @@ function Hero() {
             <span className="hero__line hero__line--accent">{scrambled}</span>
           </h1>
           <p className="hero__sub">
-            We are a dynamic startup dedicated to transforming the way businesses operate
-            through innovative, customized software solutions — from web and mobile to VR.
+            Projukti Vision is a dynamic technology startup delivering custom software solutions
+            — from .NET Core web apps and Flutter mobile apps to digital wallet enablement,
+            back-office automation, and enterprise analytics.
           </p>
           <div className="hero__ctas">
             <Link to="/services" className="btn-ghost">Our Services ↗</Link>
@@ -213,16 +241,17 @@ function About() {
         <span className="section-tag" style={{ color: "#252b6e" }}>Who We Are</span>
         <h2 className="section-title" style={{ color: "#252b6e" }}>Revolutionize<br /><em style={{ color: "#252b6e" }}>Your Experience</em></h2>
         <p>
-          We are a dynamic startup dedicated to transforming the way businesses operate
-          through innovative and customized solutions. Our small but highly skilled team
-          excels in creating bespoke web applications using Microsoft .NET Core, mobile
-          applications with Flutter for Android and iOS, and powerful REST APIs.
+          Projukti Vision is a dynamic technology startup focused on delivering custom software
+          solutions that empower businesses to streamline their operations, enhance user experiences,
+          and achieve digital transformation. Founded with a vision to turn innovative ideas into
+          scalable, client-centric applications, BSAAS combines technical expertise with a deep
+          understanding of modern business needs.
         </p>
         <p>
-          We specialize in complex business data processing using MS SQL Server and
-          managing long-running processes, ensuring your operations run smoothly and
-          efficiently. From requirement analysis to deployment and hosting, we provide
-          end-to-end services tailored to your unique needs.
+          We specialize in custom web applications using Microsoft .NET Core, cross-platform mobile
+          apps with Flutter, REST API development, Odoo customization, digital wallet enablement,
+          and enterprise-grade back-office automation — from requirement analysis to deployment
+          and hosting.
         </p>
         <Link to="/about" className="btn-primary">Learn More</Link>
       </div>
@@ -253,8 +282,9 @@ function Experience() {
         <span className="section-tag section-tag--light">What We Offer</span>
         <h2 className="experience__title">Experience a New World</h2>
         <p className="experience__sub">
-          Unlock the full potential of your business with tailored solutions that
-          optimize processes and drive profitability.
+          Unlock the full potential of your business with our tailored digital solutions —
+          from secure FinTech wallets and mobile apps to large-scale back-office automation
+          and enterprise analytics that drive real results.
         </p>
         <div className="experience__img-wrap">
           <div className="exp-blob-photo" />
@@ -281,9 +311,11 @@ function Possibilities() {
         <div className="feature-row__text">
           <h2 className="feature-title">Step into a New World<br /><em>of Possibilities</em></h2>
           <p>
-            At our company, we are committed to providing our clients with the best
-            software solutions on the market. Our team of experts works tirelessly to
-            ensure that our software is user-friendly, reliable, and efficient.
+            At Projukti Vision, we are committed to providing our clients with the best
+            software solutions on the market. Our team of experts works tirelessly to ensure
+            that our software is user-friendly, reliable, and efficient — from FinTech wallets
+            with Google &amp; Apple Wallet provisioning to distributed back-office systems
+            processing millions of documents.
           </p>
           <p>Start with the customer — find out what they want and give it to them.</p>
           <Link to="/services" className="btn-primary">Learn More</Link>
@@ -295,8 +327,14 @@ function Possibilities() {
 
 /* ── Feature Cards ── */
 const FEATURES = [
-  { title: "Multiplayer", desc: "Dominate leaderboards, challenge yourself with workouts, collaborate with friends, and explore new worlds with our constantly growing library of VR games and experiences." },
-  { title: "Freedom", desc: "As a software company, we offer a wide range of virtual reality experiences and games that cater to everyone's interests and preferences." },
+  {
+    title: "Digital Wallet Enablement",
+    desc: "We enable secure, in-app card provisioning for Google Wallet and Apple Wallet, leveraging network-grade tokenization and device binding so sensitive card data is never exposed — delivering enhanced fraud protection and frictionless customer onboarding.",
+  },
+  {
+    title: "Back-Office Automation",
+    desc: "Our distributed, long-running processing systems manage hundreds of interconnected databases and millions of structured and unstructured documents, ensuring high availability, fault tolerance, and scalable analytics for enterprise clients year-round.",
+  },
 ];
 function FeatureCards() {
   const [ref, inView] = useInView();
@@ -314,7 +352,7 @@ function FeatureCards() {
   );
 }
 
-/* ── Comfort & Convenience ── */
+/* ── Mobile App Development ── */
 function Comfort() {
   const [ref, inView] = useInView();
   return (
@@ -329,31 +367,34 @@ function Comfort() {
           </div>
         </div>
         <div className="feature-row__text">
-          <h2 className="feature-title">Comfort &amp;<br /><em>Convenience</em></h2>
+          <h2 className="feature-title">Mobile App<br /><em>Development</em></h2>
           <p>
-            We guarantee the use of original or equivalent quality parts, ensuring the
-            best quality available on the market at the most competitive prices. All our
-            interventions come with a one-year warranty.
+            Projukti Vision builds secure, high-performance mobile applications for FinTech
+            wallets and restaurant service platforms. For FinTech wallets, we develop apps with
+            seamless digital wallet integration, secure payments, tokenization, and real-time
+            transaction management. For restaurant services, our apps power online ordering,
+            digital payments, loyalty programs, and real-time customer engagement.
           </p>
-          {/* <Link to="/services" className="link-more">Learn More →</Link> */}
         </div>
       </div>
     </section>
   );
 }
 
-/* ── Customizable Designs ── */
+/* ── Enterprise Reporting ── */
 function CustomDesigns() {
   const [ref, inView] = useInView();
   return (
     <section className={`feature-row ${inView ? "feature-row--visible" : ""}`} ref={ref}>
       <div className="feature-row__inner feature-row__inner--rev">
         <div className="feature-row__text">
-          <h2 className="feature-title">Customizable<br /><em>Designs</em></h2>
+          <h2 className="feature-title">Enterprise Reporting<br /><em>&amp; Analytics</em></h2>
           <p>
-            We guarantee the use of original or equivalent quality parts, ensuring the
-            best quality available on the market at the most competitive prices. All our
-            interventions come with a one-year warranty.
+            Our robust reporting platforms transform raw data into actionable insights, supporting
+            multi-format outputs including RDLC reports, PDF generation with iText 7, Excel &amp; CSV
+            exports, HTML dashboards, and real-time React frontend analytics. We deliver dynamic
+            report generation from millions of records, automated scheduling, and role-based
+            multi-tenant reporting for compliance and decision-making.
           </p>
         </div>
         <div className="feature-row__visual">
@@ -369,7 +410,7 @@ function CustomDesigns() {
   );
 }
 
-/* ── Intuitive Controls ── */
+/* ── HR Solutions ── */
 function Intuitive() {
   const [ref, inView] = useInView();
   return (
@@ -385,13 +426,13 @@ function Intuitive() {
           </div>
         </div>
         <div className="feature-row__text">
-          <h2 className="feature-title">Intuitive<br /><em>Controls</em></h2>
+          <h2 className="feature-title">HR Solutions for<br /><em>Garment Industries</em></h2>
           <p>
-            Use our platform to create various components featuring left or right-aligned
-            images alongside text content. Duplicate elements to create a list that suits
-            your requirements.
+            Through our collaboration with BHS Infotech, Projukti Vision delivers specialized
+            HR solutions for export-oriented garment and apparel manufacturers. Our platforms handle
+            large labor volumes, shift-based operations, compliance tracking, payroll integration,
+            and audit readiness for international buyers — scalable across multiple factory locations.
           </p>
-          {/* <Link to="/services" className="link-more">Read on →</Link> */}
         </div>
       </div>
     </section>

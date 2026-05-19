@@ -8,28 +8,28 @@ const NEWS = [
     category: "Company News",
     tag: "company-news",
     date: "May 8, 2025",
-    title: "Projukti Vision Raises Seed Funding to Expand AI Engineering Division",
+    title: "Projukti Vision Expands Digital Wallet Enablement Capabilities",
     excerpt:
-      "We're thrilled to announce a new round of funding to accelerate our AI capabilities and grow our engineering team across India.",
+      "We're thrilled to announce expanded support for Google Wallet and Apple Wallet push provisioning, with enhanced tokenization and device-bound payment security for our fintech clients.",
     readTime: "3 min read",
     featured: true,
     author: "Saibal Sarkar",
     authorOrg: "Projukti Vision",
-    image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=900&q=80",
-    tags: ["funding", "company"],
+    image: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=900&q=80",
+    tags: ["fintech", "digital-wallet"],
   },
   {
     id: 2,
     category: "Case Study",
     tag: "case-study",
     date: "Apr 22, 2025",
-    title: "How We Built NovaPay's Fraud Detection Engine in 90 Days",
+    title: "How We Built a Fraud Detection Engine for a FinTech Wallet in 90 Days",
     excerpt:
-      "A deep-dive into the architecture decisions, trade-offs, and engineering lessons from our most ambitious fintech project to date.",
+      "A deep-dive into the architecture decisions, trade-offs, and engineering lessons from building a real-time fraud detection system with secure tokenization and API-driven architecture.",
     readTime: "8 min read",
     author: "Michelle Lee",
     authorOrg: "Projukti Vision",
-    image: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=900&q=80",
+    image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=900&q=80",
     tags: ["fintech", "engineering"],
   },
   {
@@ -37,56 +37,56 @@ const NEWS = [
     category: "Insights",
     tag: "insights",
     date: "Apr 10, 2025",
-    title: "The State of AI Engineering in Indian Startups: 2025 Report",
+    title: "Back-Office Automation at Scale: Processing Millions of Documents Reliably",
     excerpt:
-      "We surveyed 200+ CTOs and engineering leaders. Here's what they told us about AI adoption, challenges, and what's coming next.",
+      "How Projukti Vision architects distributed systems that manage hundreds of interconnected databases and millions of structured documents with high availability and fault tolerance.",
     readTime: "6 min read",
     author: "Aline Turner",
     authorOrg: "Projukti Vision",
-    image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=900&q=80",
-    tags: ["AI", "report"],
+    image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=900&q=80",
+    tags: ["automation", "architecture"],
   },
   {
     id: 4,
     category: "Engineering",
     tag: "engineering",
     date: "Mar 28, 2025",
-    title: "Why We Switched Our Entire Infrastructure to Edge-First Architecture",
+    title: "Enterprise Reporting with iText 7 and React Dashboards: Our Approach",
     excerpt:
-      "After 6 months of evaluation, we moved our platform to an edge-first model. Here's what we learned, what broke, and what we'd do differently.",
+      "A technical walkthrough of how we deliver multi-format reports — from RDLC and PDF to live React dashboards — to millions of end customers across multi-tenant SaaS platforms.",
     readTime: "10 min read",
     author: "Iris Johnson",
     authorOrg: "Projukti Vision",
-    image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=900&q=80",
-    tags: ["infrastructure", "devops"],
+    image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=900&q=80",
+    tags: ["reporting", "devops"],
   },
   {
     id: 5,
     category: "Company News",
     tag: "company-news",
     date: "Mar 15, 2025",
-    title: "Projukti Vision Opens New Office in Bangalore",
+    title: "Projukti Vision & BHS Infotech Launch HR Platform for Garment Exporters",
     excerpt:
-      "To better serve our growing client base in South India, we're expanding our physical presence with a new office in Indiranagar, Bangalore.",
+      "Our strategic collaboration with BHS Infotech delivers a specialized HR solution covering shift-based workforce management, export compliance, and payroll integration for garment manufacturers.",
     readTime: "2 min read",
     author: "Saibal Sarkar",
     authorOrg: "Projukti Vision",
     image: "https://images.unsplash.com/photo-1596422846543-75c6fc197f07?w=900&q=80",
-    tags: ["office", "expansion"],
+    tags: ["HR", "collaboration"],
   },
   {
     id: 6,
     category: "Insights",
     tag: "insights",
     date: "Feb 27, 2025",
-    title: "Zero-Trust Architecture: Not Just a Buzzword Anymore",
+    title: "Flutter vs. Native: Why We Choose Flutter for Our FinTech and Restaurant Apps",
     excerpt:
-      "As cyber threats evolve, zero-trust has moved from theoretical framework to operational necessity. Here's our practical implementation guide.",
+      "After delivering multiple cross-platform apps, our engineering team breaks down when Flutter wins, what the trade-offs are, and how we achieve native-level performance for complex payment flows.",
     readTime: "7 min read",
     author: "Michelle Lee",
     authorOrg: "Projukti Vision",
-    image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=900&q=80",
-    tags: ["security", "architecture"],
+    image: "https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?w=900&q=80",
+    tags: ["mobile", "flutter"],
   },
 ];
 
@@ -149,7 +149,6 @@ export default function NewsPage() {
             </>
           ) : (
             <>
-              {/* <span className="np-hero__badge">Latest</span> */}
               <h1 className="np-hero__title">{heroItem.title}</h1>
               <p className="np-hero__sub">{heroItem.excerpt}</p>
             </>
@@ -224,9 +223,6 @@ export default function NewsPage() {
           )}
         </div>
       </section>
-
-      {/* ── Footer ── */}
-     
     </div>
   );
 }

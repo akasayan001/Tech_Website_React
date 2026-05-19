@@ -36,7 +36,7 @@ export default function Footer() {
             { label: "News", path: "/news" },
             { label: "Blog", path: "/news" },
             { label: "Contact", path: "/contact" },
-            { label: "Privacy Policy", path: "#" },
+            { label: "Privacy Policy", path: "/privacy-policy" }
           ].map((l) => (
             <Link key={l.label} to={l.path}>{l.label}</Link>
           ))}
